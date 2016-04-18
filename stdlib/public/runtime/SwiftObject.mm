@@ -1217,7 +1217,7 @@ extern "C" const Metadata *swift_dynamicCastTypeToObjCProtocolUnconditional(
   case MetadataKind::HeapLocalVariable:
   case MetadataKind::HeapGenericLocalVariable:
   case MetadataKind::ErrorObject:
-    assert(false && "not type metadata");
+    swift::crash("Not type metadata");
     break;
   }
   
@@ -1265,7 +1265,7 @@ extern "C" const Metadata *swift_dynamicCastTypeToObjCProtocolConditional(
   case MetadataKind::HeapLocalVariable:
   case MetadataKind::HeapGenericLocalVariable:
   case MetadataKind::ErrorObject:
-    assert(false && "not type metadata");
+    swift::crash("Not type metadata");
     break;
   }
   

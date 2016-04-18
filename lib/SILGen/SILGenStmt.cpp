@@ -401,7 +401,7 @@ namespace {
   public:
     DeferEscapeCheckerCleanup(SourceLoc deferLoc) : deferLoc(deferLoc) {}
     void emit(SILGenFunction &SGF, CleanupLocation l) override {
-      assert(false && "Sema didn't catch exit out of a defer?");
+      llvm_unreachable("Sema didn't catch exit out of a defer?");
     }
   };
 }

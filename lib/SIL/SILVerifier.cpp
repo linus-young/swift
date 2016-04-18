@@ -3257,7 +3257,7 @@ void SILModule::verify() const {
   for (const SILFunction &f : *this) {
     if (!symbolNames.insert(f.getName()).second) {
       llvm::errs() << "Symbol redefined: " << f.getName() << "!\n";
-      assert(false && "triggering standard assertion failure routine");
+      llvm_unreachable("triggering standard assertion failure routine");
     }
     f.verify(/*SingleFunction=*/ false);
   }
@@ -3266,7 +3266,7 @@ void SILModule::verify() const {
   for (const SILGlobalVariable &g : getSILGlobals()) {
     if (!symbolNames.insert(g.getName()).second) {
       llvm::errs() << "Symbol redefined: " << g.getName() << "!\n";
-      assert(false && "triggering standard assertion failure routine");
+      llvm_unreachable("triggering standard assertion failure routine");
     }
     g.verify();
   }
@@ -3276,7 +3276,7 @@ void SILModule::verify() const {
   for (const SILVTable &vt : getVTables()) {
     if (!vtableClasses.insert(vt.getClass()).second) {
       llvm::errs() << "Vtable redefined: " << vt.getClass()->getName() << "!\n";
-      assert(false && "triggering standard assertion failure routine");
+      llvm_unreachable("triggering standard assertion failure routine");
     }
     vt.verify(*this);
   }
@@ -3290,7 +3290,7 @@ void SILModule::verify() const {
     if (!wtableConformances.insert(conformance).second) {
       llvm::errs() << "Witness table redefined: ";
       conformance->printName(llvm::errs());
-      assert(false && "triggering standard assertion failure routine");
+      llvm_unreachable("triggering standard assertion failure routine");
     }
     wt.verify(*this);
   }
@@ -3303,7 +3303,7 @@ void SILModule::verify() const {
     if (!defaultWitnessTables.insert(wt.getProtocol()).second) {
       llvm::errs() << "Default witness table redefined: ";
       wt.dump();
-      assert(false && "triggering standard assertion failure routine");
+      llvm_unreachable("triggering standard assertion failure routine");
     }
     wt.verify(*this);
   }

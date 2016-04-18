@@ -2066,7 +2066,7 @@ getPartialApplicationFunction(IRGenSILFunction &IGF, SILValue v,
     case SILFunctionTypeRepresentation::CFunctionPointer:
     case SILFunctionTypeRepresentation::Block:
     case SILFunctionTypeRepresentation::ObjCMethod:
-      assert(false && "partial_apply of foreign functions not implemented");
+      llvm_unreachable("partial_apply of foreign functions not implemented");
       break;
         
     case SILFunctionTypeRepresentation::WitnessMethod:

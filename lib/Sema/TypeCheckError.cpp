@@ -764,11 +764,8 @@ private:
         // Variadic arguments never contribute to 'rethrows'.
         // Assign the rest of the source elements parameter types that will
         // cause the recursive walker to ignore them.
-        for (unsigned srcIndex : shuffle->getVariadicArgs()) {
-          assert(srcIndex >= 0 && "default-initialized variadic argument?");
-          origSrcElts[srcIndex] =
-            origParamTupleType->getASTContext().TheRawPointerType;
-        }
+        assert(shuffle->getVariadicArgs().empty() &&
+               "default-initialized variadic argument?");
 
         // We're done iterating these elements.
         break;
